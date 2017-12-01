@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no,email=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=Edge,chrome=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="icon/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+</head>
+<body> 
+    <div class="box">
+        <header>
+            <div class="zz">
+                <img src="images/logo.png" alt="">
+                <span>中国农业银行</span>
+            </div>
+            <div></div>
+            <div class="rr">
+                <i class="iconfont">&#xe729;</i>
+                <b class="iconfont">&#xe6eb;</b>
+            </div>
+        </header>
+        <section>
+            <div class="banner">
+                <div class="swiper-container container">
+                   <div class="swiper-wrapper">
+                       <div class="swiper-slide"><img src="images/1.jpg" alt=""></div>
+                       <div class="swiper-slide"><img src="images/2.jpg" alt=""></div>
+                       <div class="swiper-slide"><img src="images/3.jpg" alt=""></div>
+                       <div class="swiper-slide"><img src="images/4.jpg" alt=""></div>
+                   </div>
+                   <div class="swiper-pagination"></div>
+                </div>
+                <p>全国统一开发,拿起手机一起订购<span>2017-11-30</span></p>
+                <p>全国统一开发，德克士五折优惠券<span>2017-11-30</span></p>
+            </div>
+            <div class="data">
+                
+            </div>
+            <div class="main1">
+               <p>便捷服务</p>
+               <div class="nav">
+                   <a href="javascript:;"><img src="images/1.png" alt=""><span>掌上银行</span></a>
+                   <a href="javascript:;"><img src="images/1.png" alt=""><span>掌上银行</span></a>
+                   <a href="javascript:;"><img src="images/1.png" alt=""><span>掌上银行</span></a>
+                   <a href="javascript:;"><img src="images/1.png" alt=""><span>掌上银行</span></a>
+                   <a href="javascript:;"><img src="images/1.png" alt=""><span>掌上银行</span></a>
+                   <a href="javascript:;"><img src="images/1.png" alt=""><span>掌上银行</span></a>
+                   <a href="javascript:;"><img src="images/1.png" alt=""><span>掌上银行</span></a>
+                   <a href="javascript:;"><img src="images/1.png" alt=""><span>掌上银行</span></a>
+               </div>
+            </div>
+            <div class="main2">
+                <p>你的每段旅程，我们全心陪伴</p>
+                <div class="toggle">
+                   <dl>
+                       <dt>学生时代</dt>
+                       <dd>
+                           <span>一键缴费</span>
+                           <span>网上理财</span> 
+                           <span>保险保障</span>
+                           <span>汽车贷款</span>
+                           <span>一键缴费</span>
+                           <span>网上理财</span> 
+                           <span>保险保障</span>
+                           <span>汽车贷款</span>
+                       </dd>
+                   </dl>
+                   <dl>
+                       <dt>学生时代</dt>
+                       <dd>
+                           <span>一键缴费</span>
+                           <span>网上理财</span> 
+                           <span>保险保障</span>
+                           <span>汽车贷款</span>
+                           <span>一键缴费</span>
+                           <span>网上理财</span> 
+                           <span>保险保障</span>
+                           <span>汽车贷款</span>
+                       </dd>
+                   </dl>
+                   <dl>
+                       <dt>学生时代</dt>
+                       <dd>
+                           <span>一键缴费</span>
+                           <span>网上理财</span> 
+                           <span>保险保障</span>
+                           <span>汽车贷款</span>
+                           <span>一键缴费</span>
+                           <span>网上理财</span> 
+                           <span>保险保障</span>
+                           <span>汽车贷款</span>
+                       </dd>
+                   </dl>
+                   
+                
+                </div>
+            </div>
+        </section>
+        <footer></footer>
+    </div>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        var bannerSwiper = new Swiper(".container", {
+            loop:true,
+            autoplay:2000,
+            pagination:".swiper-pagination",
+        		paginationClickable:true,
+        		autoplayDisableOnInteraction:false
+        })
+
+        $.ajax({
+            url:"data.json",
+            success:function(obj){
+               for(var i=0;i<obj.data.length;i++) {
+                   $(".data").append(`<div class="one">
+                     <span>${obj.data[i]}</span><i>2017-2-10</i>
+                 </div>`)
+               }
+
+            }
+        })   
+        $("dt").click(function(){
+  				$(this).next().slideToggle(1000);
+  				$(this).parent().siblings().children("dd").show();
+        })  
+    </script>
+</body>
+</html>
